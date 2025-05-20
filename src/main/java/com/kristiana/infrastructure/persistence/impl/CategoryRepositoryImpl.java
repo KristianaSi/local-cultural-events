@@ -67,7 +67,7 @@ public class CategoryRepositoryImpl extends GenericRepository<Category, UUID> im
     }
 
     @Override
-    public long countAudiobooksByGenreId(UUID categoryId) {
+    public long countEventByCategoryId(UUID categoryId) {
         String sql = "SELECT COUNT(*) FROM events WHERE category_id = ?";
         return executeCountQuery(sql, List.of(categoryId));
     }

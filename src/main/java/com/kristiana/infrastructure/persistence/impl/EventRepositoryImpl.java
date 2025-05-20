@@ -33,6 +33,11 @@ public class EventRepositoryImpl extends GenericRepository<Event, UUID> implemen
 
     @Override
     public List<Event> findByNameContainingIgnoreCase(String partialName) {
+        return List.of();
+    }
+
+    @Override
+    public List<Event> findByPartialName(String partialName) {
         return findAll(
             (whereClause, params) -> {
                 whereClause.add("name ILIKE ?");

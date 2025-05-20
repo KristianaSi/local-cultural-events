@@ -8,11 +8,13 @@ import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.springframework.stereotype.Component;
 
 /**
  * Пул з'єднань для управління JDBC-з'єднаннями з H2 базою даних.
  * Використовує Proxy для перевизначення close, повертаючи з'єднання в пул.
  */
+@Component
 public class ConnectionPool {
     private final BlockingQueue<Connection> availableConnections;
     private final String url;

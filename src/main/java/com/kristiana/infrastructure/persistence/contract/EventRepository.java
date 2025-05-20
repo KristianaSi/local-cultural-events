@@ -66,5 +66,7 @@ public interface EventRepository extends Repository<Event, UUID> {
      * @return true, якщо подія існує
      */
     boolean existsByName(String name);
+
+    List<Event> findByPartialName(String partialName);
 }
 

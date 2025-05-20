@@ -71,7 +71,7 @@ public class AttendanceRepositoryImpl extends GenericRepository<Attendance, UUID
     public List<Attendance> findByNameContainingIgnoreCase(String partialName) {
         return findAll(
             (whereClause, params) -> {
-                whereClause.add("name ILIKE ?");
+                whereClause.add("name LIKE ?");
                 params.add("%" + partialName + "%");
             },
             null, true, 0, Integer.MAX_VALUE

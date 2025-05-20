@@ -14,14 +14,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class User implements Comparable<User> {
 
     private UUID id;
     private String username;
     private String passwordHash;
     private String email;
-    private String avatarPath;
+    private Role role;
 
     @Override
     public boolean equals(Object o) {
@@ -41,4 +40,23 @@ public class User implements Comparable<User> {
         // Compare by username
         return this.username.compareToIgnoreCase(other.username);
     }
+
+    public enum Role {
+        BANNED("banned"),
+        ADMIN("admin"),
+        GENERAL("general");
+
+        String name;
+
+        Role(String name) {
+
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+
 }
